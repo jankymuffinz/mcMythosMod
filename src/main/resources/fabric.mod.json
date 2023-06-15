@@ -1,31 +1,31 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "mythos",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Mythos",
+	"description": "Spooky Mythology N cryptids N cosmic horror stuff",
 	"authors": [
-		"Me!"
+		"MuffinZ"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/mythos/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+          "net.muffinz.Mythos"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"net.muffinz.MythosClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
+		"mythos.mixins.json",
 		{
-			"config": "modid.client.mixins.json",
+			"config": "mythos.client.mixins.json",
 			"environment": "client"
 		}
 	],
