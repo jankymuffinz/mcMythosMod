@@ -5,7 +5,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.block.v1.FabricBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.TorchBlock;
 import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.BlockItem;
@@ -15,45 +17,41 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
+import net.muffinz.items.KingInYellow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Mythos implements ModInitializer {
-    // This logger is used to write text to the console and the log file.
-    // It is considered best practice to use your mod id as the logger's name.
-    // That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("mythos");
+    public static final String MODID = "mythos";
+    
+    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
     // ** ---------- Item Init --------- ** //
 
-    public static final Item STRANGER_IN_CARCOSSA = Registry.register(Registries.ITEM, new Identifier("mythos", "stranger_in_carcossa"),
-            new Item(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
-    public static final Item
+    public static final KingInYellow THE_KING_IN_YELLOW = Registry.register(Registries.ITEM, new Identifier(MODID, "the_king_in_yellow"),
+            new KingInYellow(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
 
 
 
     // ** ---------- Block Init --------- ** //
 
-    public static final Block TOTEMIC_EAGLE = Registry.register(Registries.BLOCK, new Identifier("mythos", "totemic_eagle"),
-            new Block(FabricBlockSettings.of().strength(3.0f)));
+    public static final Block TOTEMIC_PHANTOM = Registry.register(Registries.BLOCK, new Identifier(MODID, "totemic_phantom"),
+            new Block(FabricBlockSettings.copyOf(AbstractBlock.Settings.create().burnable().strength(2.0f).solid())));
+    public static final Block TOTEM_BLANK = Registry.register(Registries.BLOCK, new Identifier(MODID, "totem_blank"), 
+            new Block(FabricBlockSettings.copyOf(AbstractBlock.Settings.create().burnable().strength(2.0f).solid())));
 
 
 
-
-
+    
     public void registerBlockItems() {
-        Registry.register(Registries.ITEM, new Identifier("mythos", "totemic_eagle"), new BlockItem(TOTEMIC_EAGLE, new FabricItemSettings().rarity(Rarity.UNCOMMON)));
-
+        Registry.register(Registries.ITEM, new Identifier(MODID, "totemic_phantom"), new BlockItem(TOTEMIC_PHANTOM, new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+        Registry.register(Registries.ITEM, new Identifier(MODID, "totem_blank"), new BlockItem(TOTEM_BLANK, new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     }
 
     @Override
     public void onInitialize() {
-        // This code runs as soon as Minecraft is in a mod-load-ready state.
-        // However, some things (like resources) may still be uninitialized.
-        // Proceed with mild caution.
-
-        LOGGER.info("Hello Fabric world!");
+        LOGGER.info("Mythos Loaded");
 
         registerBlockItems();
     }

@@ -1,9 +1,9 @@
-# Fabric Example Mod
+ # Mythos
+ 
+ ## Building
 
-## Setup
+To build the mod you can download the source and run `./gradlew genSources` and once your sources are generated you can build by running: `./gradlew build`.
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+ ## Content
 
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+The mod adds a lot of spooky and folklore related stuff, mostly based on American folklore, but also some cosmic/eldritch horror. I plan to add JEI/REI support so that not all of the recipies will show up at the beginning, as I would like you to use the methods that I have added to discover and explore the mod, due to this reason, I also suggest not looking anything up when playing through this mod as it is designed to allow experienced and skilled players to progress very quickly, while newer players must discover things for themselves.
