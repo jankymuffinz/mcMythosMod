@@ -1,4 +1,4 @@
-package net.muffinz.items;
+package net.muffinz.items.KingInYellow;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,6 +14,7 @@ public class KingInYellow extends Item implements IAnimatable, ISyncable {
         //Register the item as a geckolib syncable
         GeckoLibNetwork.registerSyncable(this);
     }
+
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
